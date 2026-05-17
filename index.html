@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아기 사자 인터랙티브 대시보드 - 김다윤</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        
+        <header class="control-panel">
+            <button type="button" id="btn-toggle-form">아기 사자 추가</button>
+            <button type="button" id="btn-delete-last">마지막 아기 사자 삭제</button>
+            <span id="total-count">총 9명</span>
+        </header>
+
+        <section id="form-section" class="hidden">
+            <form id="add-lion-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="input-name">이름</label>
+                        <input type="text" id="input-name" placeholder="예: 홍아기사자" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="select-part">파트</label>
+                        <select id="select-part" required>
+                            <option value="Frontend" selected>Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-skills">관심 기술 (쉼표로 구분)</label>
+                        <input type="text" id="input-skills" placeholder="예: JavaScript, React, HTML/CSS" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="input-desc">한 줄 소개 (요약 카드)</label>
+                        <input type="text" id="input-desc" placeholder="예: 3주차 DOM 조작 연습 중!" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="input-intro">자기소개 (상세 카드)</label>
+                        <textarea id="input-intro" rows="3" placeholder="예: HTML/CSS로 구조를 만들고, JS로 데이터를 바꾸면 화면이 바뀌는 경험을 하고 있습니다." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-email">Email</label>
+                        <input type="email" id="input-email" placeholder="예: lion@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-phone">Phone</label>
+                        <input type="text" id="input-phone" placeholder="예: 010-1234-5678" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="input-website">Website</label>
+                        <input type="url" id="input-website" placeholder="예: https://example.com" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="input-msg">한 마디</label>
+                        <input type="text" id="input-msg" placeholder="예: 데이터 바꾸면 화면도 바뀐다!" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">추가하기</button>
+                    <button type="button" id="btn-cancel" class="btn-cancel">취소</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="summary-section">
+            <div id="summary-grid" class="grid-container">
+                
+                <div class="summary-card my-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-1"></div>
+                        <span class="badge">HTML / CSS</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>김아기사자</h3>
+                        <p class="part front">Frontend</p>
+                        <p class="desc">구조적인 UI를 고민하는 프론트엔드 개발자입니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-2"></div>
+                        <span class="badge">Java</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>박아기사자</h3>
+                        <p class="part back">Backend</p>
+                        <p class="desc">안정적인 서버 구조에 관심이 많습니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-3"></div>
+                        <span class="badge">Figma</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>이야기사자</h3>
+                        <p class="part design">Design</p>
+                        <p class="desc">사용자 관점에서 디자인을 고민합니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-4"></div>
+                        <span class="badge">React</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>최아기사자</h3>
+                        <p class="part front">Frontend</p>
+                        <p class="desc">리액트를 활용한 상태 관리에 몰두하고 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-5"></div>
+                        <span class="badge">Node.js</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>정아기사자</h3>
+                        <p class="part back">Backend</p>
+                        <p class="desc">빠르고 가벼운 네트워크 애플리케이션에 흥미가 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-6"></div>
+                        <span class="badge">Design Tokens</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>강아기사자</h3>
+                        <p class="part design">Design</p>
+                        <p class="desc">확장 가능한 디자인 시스템을 설계합니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-7"></div>
+                        <span class="badge">TypeScript</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>윤아기사자</h3>
+                        <p class="part front">Frontend</p>
+                        <p class="desc">반응형 웹 구현을 연습 중입니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-8"></div>
+                        <span class="badge">Spring</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>한아기사자</h3>
+                        <p class="part back">Backend</p>
+                        <p class="desc">API 설계의 일관성을 중요하게 생각합니다.</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="image-wrapper">
+                        <div class="placeholder-img color-9"></div>
+                        <span class="badge">Design</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>신아기사자</h3>
+                        <p class="part design">Design</p>
+                        <p class="desc">의미 있는 시각 표현을 만들고 싶습니다.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="section-title">상세 자기소개 목록</h2>
+            <div id="detail-list">
+                
+                <article class="detail-card">
+                    <header class="detail-header">
+                        <h2>신아기사자</h2>
+                        <p class="part-text">Design</p>
+                        <p class="track-text">LION TRACK</p>
+                    </header>
+                    <div class="detail-body">
+                        <h3>자기소개</h3>
+                        <p>의미 있는 시각 표현을 만들고 싶습니다.</p>
+                        <h3>연락처</h3>
+                        <ul class="info-bullet-list">
+                            <li>Email: shin@example.com</li>
+                            <li>Phone: 010-9999-8888</li>
+                            <li><a href="https://visual.story" target="_blank">https://visual.story</a></li>
+                        </ul>
+                        <h3>관심 기술</h3>
+                        <ul class="info-bullet-list">
+                            <li>Typography</li>
+                            <li>Visual Storytelling</li>
+                            <li>Brand Identity</li>
+                        </ul>
+                        <h3>한 마디</h3>
+                        <p>감동을 주는 시각적 스토리텔링으로 의미 있는 디자인을 만들고 싶습니다.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
